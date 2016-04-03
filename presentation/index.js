@@ -137,6 +137,7 @@ export default class Presentation extends React.Component {
               TestEra: Specification-based Testing of Java Programs Using SAT
             </Heading>
             <Text textSize="1em" margin="20px 0px 0px" bold>Mario Peixoto (@mariopeixoto)</Text>
+            <Text textSize="1em" margin="20px 0px 0px" bold>https://github.com/mariopeixoto/testera_slides</Text>
           </Slide>
           <Slide>
             <Outline />
