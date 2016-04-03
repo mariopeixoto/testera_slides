@@ -1,0 +1,15 @@
+// basic type - set of atoms
+sig State {}
+
+// Subset of State
+static part sig Pre extends State {}
+
+sig Node {
+  //On TestEra, fields are relations
+  elem: Integer !-> State // ! means "exactly"
+  next: Node ?-> State // ? means "at most"
+}
+
+sig List {
+  header: Node ?-> State
+}

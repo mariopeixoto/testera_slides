@@ -1,0 +1,16 @@
+no e //no tuples
+some e //some tuples
+sole e //at most one tuple
+one e //exactly one tuple
+
+e1 : e2 //e1 is a subset of e2
+e1 !: e2 //e1 is not a subset of e2
+e1 in e2 //e1 is a subset of e2
+e1 !in e2 //e1 is not a subset of e2
+e1 = e2 //e1 is equal to e2
+e1 != e2 //e1 is not equal to e2
+e1 && e2 //conjunction
+e1 || e2 //disjunction
+e1 => e2 //implication
+e1 <=> e2 //bi-implication
+!e1 //negation

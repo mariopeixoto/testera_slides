@@ -1,0 +1,8 @@
+sig State {}
+static part sig Pre extends State {}
+static part sig Post extends State {}
+
+//Example
+sig List {
+  header: Node ?-> State
+}

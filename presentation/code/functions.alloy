@@ -1,0 +1,3 @@
+fun T1::f(p2: T2, ..., pn: Tn): R { ... }
+fact { ... }
+assert { ... }

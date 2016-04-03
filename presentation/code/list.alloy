@@ -1,0 +1,34 @@
+sig State {}
+static part sig Pre extends State {}
+static part sig Post extends State {}
+
+sig List {
+  header: Node ?-> State
+}
+
+sig Node {
+  elem: Integer !-> State,
+  next: Node ?-> State
+}
+
+//Pre condition
+fun List::RepOk() {
+  // acyclicity
+  all n: header::Pre.*next::Pre | not n in n.^next::Pre
+}
+
+//Post condition
+fun List::methodOk() {
+  // acyclicity
+  all n: header::Post.*next::Post | not n in n.^next::Post
+
+  // sorted
+  all n: header::Post.*next::Post |
+    some n.next::Post implies
+    n.elem::Post <= n.next::Post.elem::Post
+
+  // output is permutation of the input
+  all i: Integer |
+    # { n: header::Post.*next::Post | n.elem::Post = i } =
+    # { n: header::Pre.*next::Pre | n.elem::Pre = i }
+}
