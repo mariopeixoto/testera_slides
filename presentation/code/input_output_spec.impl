@@ -1,0 +1,9 @@
+AlloySpec generateOracleSpec(Method m, AlloySpec inputSpec,
+                             Formula post) {
+  result is inputSpec together with:
+    sig declaration for post state
+    function methodOk that has signature corresponding to m
+    and has as body post (i.e., m’s postcondition), where
+      each backticked field f‘ is replaced by f::Pre
+      each non-backticked field f is replaced f::Post
+}

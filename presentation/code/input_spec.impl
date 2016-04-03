@@ -1,0 +1,15 @@
+AlloySpec generateInputSpec(Classfiles jar, Method m,
+                            Formula pre) {
+  result is alloy specification consisting of:
+    sig declarations for (pre)state
+    foreach class C in jar (which does not have a library spec)
+      sig declaration for C
+    foreach field f declared in class C
+      if f is of reference type T
+        field declaration, f: T ?-> State, in sig C
+      if f is of primitive type T
+        field declaration, f: T !-> State, in sig C
+    function repOk that has signature corresponding to that of m
+    and has as body pre (i.e., m’s precondition), where
+      each field f is replaced by f::Pre
+}

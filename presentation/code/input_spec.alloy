@@ -1,0 +1,19 @@
+module mergeSort_phase_1
+open java/primitive/integer
+
+sig State {}
+static part sig Pre extends State {}
+
+sig List {
+  header: Node ?-> State
+}
+
+sig Node {
+  elem: Integer !-> State,
+  next: Node ?-> State
+}
+
+fun List::RepOk() {
+  // acyclic
+  all n: header::Pre.*next::Pre | not n in n.^next::Pre
+}

@@ -41,7 +41,8 @@ import './index.css';
 
 
 const images = {
-  flow: require("../assets/flow.png")
+  flow: require("../assets/flow.png"),
+  results: require("../assets/results.png")
 };
 
 preloader(images);
@@ -82,10 +83,9 @@ class Outline extends React.Component {
             {this._renderItem('Motivation', 'motivation')}
             {this._renderItem('Brief Description', 'description')}
             {this._renderItem('Alloy (Basic Syntax, State Mutation, Analyzer)', 'alloy')}
-            {this._renderItem('Technique and Implementation', 'implementation')}
+            {this._renderItem('Implementation', 'implementation')}
             {this._renderItem('Evaluation', 'evaluation')}
-            {this._renderItem('Limitations', 'limitations')}
-            {this._renderItem('Related Work', 'related')}
+            {this._renderItem('Limitations & Future Work', 'limitations')}
           </List>
         </Fit>
     );
@@ -324,6 +324,77 @@ export default class Presentation extends React.Component {
           </CodeSlide>
           <Slide>
             <Outline active="implementation"/>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">TestEra flow</Heading>
+            <Image src={images.flow} width="100%"></Image>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">Implementation</Heading>
+            <Heading size={6} textColor="black">Alloy input spec</Heading>
+              <CodePane
+                  source={require("raw!./code/input_spec.impl")}
+                  margin="20px auto" />
+          </Slide>
+          <Slide>
+            <Heading textColor="black">Implementation</Heading>
+            <Heading size={6} textColor="black">Alloy input spec</Heading>
+            <CodePane
+                lang="java"
+                source={require("raw!./code/input_spec.alloy")}
+                margin="20px auto" />
+          </Slide>
+          <Slide>
+            <Heading size={6} textColor="black">Alloy input/output spec</Heading>
+            <CodePane
+                source={require("raw!./code/input_output_spec.impl")}
+                margin="20px auto" />
+          </Slide>
+          <Slide>
+            <Heading size={6} textColor="black">Alloy input/output spec</Heading>
+            <CodePane
+                source={require("raw!./code/input_output_spec.alloy")}
+                margin="20px auto" />
+          </Slide>
+          <Slide>
+            <Outline active="evaluation"/>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">Case studies</Heading>
+            <List>
+              <ListItem>Linked lists</ListItem>
+              <ListItem>Red-Black Trees (java.util)</ListItem>
+              <ListItem>Intentional Naming System</ListItem>
+              <ListItem>Alloy Analyzer (alpha version)</ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">Results</Heading>
+            <Heading size={6} textColor="black">Pentium III, 700 MHz</Heading>
+            <Image src={images.results} width="100%"></Image>
+          </Slide>
+          <Slide>
+            <Outline active="limitations"/>
+          </Slide>
+          <Slide>
+            <Heading size={4} textColor="black">Limitations & Future Work</Heading>
+            <List>
+              <ListItem>Ease of specification</ListItem>
+              <ListItem>Primitive types</ListItem>
+              <ListItem>Exceptions, arrays and multi-thread</ListItem>
+              <ListItem>Inheritance</ListItem>
+              <ListItem>Report code coverage</ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">References</Heading>
+            <List>
+              <ListItem><Text textSize="0.7em">http://users.ece.utexas.edu/~khurshid/papers/TestEra-ASE-J.pdf</Text></ListItem>
+              <ListItem><Text textSize="0.7em">https://www.doc.ic.ac.uk/project/examples/2007/271j/suprema_on_alloy/Web/</Text></ListItem>
+            </List>
+          </Slide>
+          <Slide>
+            <Heading textColor="black">Questions?</Heading>
           </Slide>
         </Deck>
       </Spectacle>
